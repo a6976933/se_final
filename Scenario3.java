@@ -6,7 +6,7 @@ public class Scenario3 {
 
     public Scenario3(List<String> expected, List<String> real) {
         this.bins = new ArrayList<>();
-        Map<String, Package> package_identifier;
+        Map<String, Package> package_identifier = new HashMap<>();
 
         for(int i = 0; i < expected.size(); i++) {
             String[] package_info = expected.get(i).split(" ");
@@ -31,7 +31,7 @@ public class Scenario3 {
     public void solve() {      
         // Compare the real destinations with the expected ones
         for(int i = 0; i < this.bins.size(); i++) {
-            List<Package> actual_packages = this.bins.get(i).reality_packages();
+            List<Package> actual_packages = this.bins.get(i).reality_packages;
             for(int j = 0; j < actual_packages.size(); j++) {
                 Package p = actual_packages.get(j);
                 if(p.destination.id != this.bins.get(i).id) {
