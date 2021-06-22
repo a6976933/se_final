@@ -6,16 +6,14 @@ public class Switch {
 	public Boolean direction;
 	public Queue<Package> now_package;
 	public Queue<Package> true_in;
-	public Scenario2 system;
 	public Boolean isSet;
-	public Switch(id int, scenario Scenario2) {
+	public Switch(id int) {
 		this.id = id;
-		this.system = scenario;
 		this.now_package = new LinkedBlockingQueue<Package>();
 		this.true_in = new LinkedBlockingQueue<Package>();
 		this.isSet = false;
 	}
-	public package_in(pack Package) {
+	public package_in(Package pack) {
 		this.now_package.offer(pack);
 	}
 	public Package package_out() {
