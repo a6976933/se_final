@@ -110,8 +110,6 @@ public class Scenario2 {
 						this.switches[sw_id].package_in(now_pack[j]);
 					}
 				}
-				
-				//now_pack = switches[sw_id].now_package.peek()
 			}
 			
 		}

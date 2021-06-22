@@ -14,7 +14,7 @@ public class Sensor {
 	public package_in(pack Package) {
 		//system.switches[switch_id].package_in(pack);
 	}
-	public Package package_out(id int) {
+	public Package package_out() {
 		Package out_pack;
 		out_pack = system.switches[switch_id].package_out();
 	}

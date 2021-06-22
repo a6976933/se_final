@@ -7,11 +7,13 @@ public class Switch {
 	public Queue<Package> now_package;
 	public Queue<Package> true_in;
 	public Scenario2 system;
+	public Boolean isSet;
 	public Switch(id int, scenario Scenario2) {
 		this.id = id;
 		this.system = scenario;
 		this.now_package = new LinkedBlockingQueue<Package>();
 		this.true_in = new LinkedBlockingQueue<Package>();
+		this.isSet = false;
 	}
 	public package_in(pack Package) {
 		this.now_package.offer(pack);
