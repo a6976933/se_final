@@ -1,9 +1,15 @@
+import java.util.*;
+
 public class Bin {
-    private int id;
-    private Packages[] reality_packages;
+    int id;
+    List<Package> reality_packages;
 
     public Bin(int id) {
         this.id = id;
-        this.reality_packages = new Packages [10000];
+        this.reality_packages = new ArrayList<Package>();
+    }
+
+    public void addPackage(Package p) {
+        reality_packages.add(p);
     }
 }
