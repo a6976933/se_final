@@ -12,4 +12,12 @@ public class Bin {
     public void addPackage(Package p) {
         reality_packages.add(p);
     }
+
+    public int getId() {
+        return this.id;
+    }
+
+    public List<Package> getPackages() {
+        return this.reality_packages;
+    }
 }
