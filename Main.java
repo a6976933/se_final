@@ -38,7 +38,13 @@ public class Main {
             Scenario3 s = new Scenario3(expected, real);
             s.solve();
         } else if(l.equals("SCENARIO2")) {
-            
+            List<String> input = new ArrayList<String>();
+            while((l = reader.readLine()) != null) {
+                input.add(l);
+            }
+
+            Scenario2 s = new Scenario2(input);
+            s.solve();
         } else {
             
         }
