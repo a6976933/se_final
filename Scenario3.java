@@ -30,12 +30,15 @@ public class Scenario3 {
 
     public void solve() {      
         // Compare the real destinations with the expected ones
+        boolean first = true;
         for(int i = 0; i < this.bins.size(); i++) {
             List<Package> actual_packages = this.bins.get(i).reality_packages;
             for(int j = 0; j < actual_packages.size(); j++) {
                 Package p = actual_packages.get(j);
                 if(p.destination.id != this.bins.get(i).id) {
-                    System.out.printf("%s bin%d\n", p.name, this.bins.get(i).id);
+                    if(!first) System.out.printf("\n");
+                    System.out.printf("%s bin%d", p.name, this.bins.get(i).id);
+                    first = false;
                 }
             }
         }
