@@ -20,11 +20,11 @@ public class Scenario3 {
             String[] bin_info = real.get(i).split(" ");
             int bin_id = bin_info[0].charAt(3) - '0';
             Bin bin = new Bin(bin_id);
-
             for(int j = 1; j < bin_info.length; j++) {
                 Package p = package_identifier.get(bin_info[j]);
-                this.bins.addPackage(p);
+                bin.addPackage(p);
             }
+            this.bins.add(bin);
         }
     }
 
