@@ -7,15 +7,22 @@ public class Scenario2 {
 	public List<Sensor> sensors;
 	public List<Bin> bins;
 	public List<Pipe> pipes;
-	public static void Main(Strings[] args) {
-		this.solve();
+	
+	private List<String> command;
+	public Scenario3(List<String> input) {
+		this.command = new ArrayList<String>();
+		this.command = input;
 	}
+	
 	public solve() {
-		int bin_num = 4;
-		int package_num = 2;
+		int bin_num = Integer.parseInt(command[0]);
+		int package_num = Integer.parseInt(command[1]);
 		List<pair<String, String>> packagelist = new ArrayList<pair<string, string>>;
-		packagelist.add(new Pair<String, String>("package0", "bin0"))
-		packagelist.add(new Pair<String, String>("package1", "bin1"))
+		for(int i = 0; i < package_num; i++) {
+			String cmd = command[i+2];
+			String[] cmd1 = cmd.split("\\s+");
+			packagelist.add(new Pair<String, String>(cmd1[0], cmd1[1]))
+		}
 		for(int i = 0;i < bin_num; i++) {
 			Bin bin = new Bin(i);
 			this.bins.add(bin);
@@ -26,17 +33,8 @@ public class Scenario2 {
 			Package pack = new Package(packagelist[i].getKey(),bins[bin_id]);
 			this.packages.add(pack);
 		}
-		List<String> command = new ArrayList<String>();
-		command.add("0 out 1 sourceStation");
-		command.add("2 in 1 switch0");
-		command.add("5 out 1 switch0 L");
-		command.add("5 out 1 sourceStation");
-		command.add("6 in 1 switch0");
-		command.add("7 out 1 switch0 L");
-		command.add("8 in 1 switch1");
-		command.add("10 out 1 siwtch1 L");
-		command.add("12 in 1 switch1");
-		command.add("13 out 1 switch1 R");
+		
+		
 		for(int i = 0; i < bin_num; i++) {
 			this.create_Switch(i);
 			this.create_Sensor(i);
@@ -45,9 +43,9 @@ public class Scenario2 {
 			this.create_Pipe(i);
 		}
 		List<Package> now_pack = new ArrayList<Package>();
-		for(int i = 0; i < command.size(); i++) {
+		for(int i = package_num+1; i < command.size(); i++) {
 			int now_inr = -1;
-			String [] cmd_arr = command.split("\\s+");
+			String[] cmd_arr = command.split("\\s+");
 			int time = Integer.parseInt(cmd_arr[0]);
 			Boolean in_out;
 			int sw_id;
@@ -67,17 +65,6 @@ public class Scenario2 {
 				now_inr += pass_num;
 			} else {
 				sw_id = cmd_arr[3].substring(6).parseInt();
-				if(pass_num > 1) {
-					if(in_out) {
-						
-					}
-				}
-				if(this.switches[sw_id].true_in.size() > 1) {
-					int dest = this.switches[sw_id].true_in.peek().name
-					for(Package tmp_pack: this.switches[sw_id].true_in) {
-						
-					}
-				}
 				if(!in_out) {
 					if(cmd_arr[4] == "L") {
 						dir = false;
