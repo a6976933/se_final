@@ -24,11 +24,23 @@ public class Main {
             Scenario1 s = new Scenario1(delay_time, bin_num, package_num, packages, bins);
             s.solve();
         } else if(l.equals("SCENARIO2")) {
+            int package_num = Integer.parseInt(reader.readLine());
+            List<String> expected = new ArrayList<String>();
+            List<String> real = new ArrayList<String>();
+            for(int i=0;i<package_num;i++) {
+                l = reader.readLine();
+                expected.add(l);
+            }
+            while((l = reader.readLine()) != null) {
+                real.add(l);
+            }
 
+            Scenario3 s = new Scenario3(expected, real);
+            s.solve();
         } else if(l.equals("SCENARIO3")) {
-
+            
         } else {
-
+            
         }
     }
 }
